@@ -1,0 +1,19 @@
+{% extends "todo_list2.html" %}
+
+{% block content%}
+
+<div class="text-center">
+    {% if request.user.is_authenticated %}
+    Hello {{request.user.username}}
+    {%else %}
+    Hello anonymous user
+    {% endif %}
+    The todo name is:{{ todo.name }} <br>
+    The due date is: {{todo.due_date}} <br>
+
+    <a class="btn btn-primary" href="/{{todo.id}}/update/">Update this todo</a> <br> <br>
+    <a class="btn btn-primary" href="/{{todo.id}}/delete/">delete this todo</a>
+</div>
+
+
+{% endblock content%}
